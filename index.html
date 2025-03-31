@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gym Fitness Hub</title>
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: 'Bebas Neue', sans-serif;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            color: white;
+            text-align: center;
+            background: url('https://wallpapercave.com/wp/wp2553525.jpg') no-repeat center center/cover;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+        }
+        body::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.6);
+            z-index: -1;
+        }
+        h1 {
+            font-size: 4em;
+            font-weight: bold;
+            color: #ff4b2b;
+            text-shadow: 4px 4px 8px rgba(255, 75, 43, 0.9);
+            margin-bottom: 20px;
+        }
+        nav {
+            margin-top: 20px;
+        }
+        ul {
+            list-style-type: none;
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+        }
+        a {
+            text-decoration: none;
+            color: white;
+            font-size: 1.5em;
+            padding: 15px 35px;
+            background: linear-gradient(45deg, #ff416c, #ff4b2b);
+            display: inline-block;
+            transform: skew(-20deg);
+            border-radius: 10px;
+            transition: 0.3s ease;
+            font-weight: bold;
+            box-shadow: 0px 4px 10px rgba(255, 75, 43, 0.5);
+        }
+        a:hover {
+            transform: skew(-20deg) scale(1.1);
+        }
+        #workoutSection {
+            display: none;
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100vh;
+            background: rgba(0, 0, 0, 0.8);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+        .container {
+            width: 50%;
+            background: rgba(255, 255, 255, 0.1);
+            padding: 20px;
+            border-radius: 15px;
+            box-shadow: 0 0 15px rgba(0, 255, 255, 0.5);
+            backdrop-filter: blur(10px);
+        }
+      select, button {
+            padding: 12px;
+            margin: 10px;
+            border-radius: 8px;
+            font-size: 16px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Gym Fitness Hub</h1>
+    <nav>
+        <ul>
+            <li><a onclick="showWorkout()">Workout</a></li>
+            <li><a href="Supplements.html">Supplements</a></li> 
+        </ul>
+    </nav>
+    <div id="workoutSection">
+        <div class="container">
+            <h1>Workout Planner 💪🔥</h1>
+            <h2>Select Muscle Group</h2>
+            <select id="muscleGroup">
+                <option value="chest">Chest</option>
+                <option value="back">Back</option>
+                <option value="biceps">Biceps</option>
+                <option value="triceps">Triceps</option>
+                <option value="shoulders">Shoulders</option>
+                <option value="legs">Legs</option>
+            </select>
+            <button onclick="generateWorkout()">Show Workout Plan</button>
+            <ul class="workout-list" id="exerciseList"></ul>
+            <button onclick="hideWorkout()">Close</button>
+        </div>
+    </div>
+    <script>
+        const workouts = {
+            biceps: [
+                ["Barbell Curls", "https://www.youtube.com/watch?v=kwG2ipFRgfo", "https://fitnessprogramer.com/wp-content/uploads/2021/02/Barbell-Biceps-Curl.gif"],
+                ["Dumbbell Curls", "https://www.youtube.com/watch?v=ykJmrZ5v0Oo", "https://fitnessprogramer.com/wp-content/uploads/2021/02/Dumbbell-Biceps-Curl.gif"],
+                ["Hammer Curls", "https://www.youtube.com/watch?v=TwD-YGVP4Bk", "https://fitnessprogramer.com/wp-content/uploads/2021/02/Dumbbell-Hammer-Curl.gif"],
+                ["Preacher Curls", "https://www.youtube.com/watch?v=eoWrZtTvI9w", "https://fitnessprogramer.com/wp-content/uploads/2021/02/Preacher-Curl.gif"]
+            ],
+            triceps: [
+                ["Tricep Dips", "https://www.youtube.com/watch?v=0326dy_-CzM", "https://fitnessprogramer.com/wp-content/uploads/2021/02/Dips.gif"],
+                ["Skull Crushers", "https://www.youtube.com/watch?v=d_KZxkY_0cM", "https://fitnessprogramer.com/wp-content/uploads/2021/02/Lying-Triceps-Extension.gif"],
+                ["Close Grip Bench Press", "https://www.youtube.com/watch?v=nEF0bv2FW94", "https://fitnessprogramer.com/wp-content/uploads/2021/02/Close-Grip-Bench-Press.gif"],
+                ["Tricep Pushdown", "https://www.youtube.com/watch?v=2-LAMcpzODU", "https://fitnessprogramer.com/wp-content/uploads/2021/02/Cable-Tricep-Pushdown.gif"]
+            ],
+            chest: [
+                ["Bench Press", "https://www.youtube.com/watch?v=rT7DgCr-3pg", "https://fitnessprogramer.com/wp-content/uploads/2021/02/Barbell-Bench-Press.gif"],
+                ["Incline Dumbbell Press", "https://www.youtube.com/watch?v=8iPEnn-ltC8", "https://fitnessprogramer.com/wp-content/uploads/2021/02/Incline-Dumbbell-Press.gif"],
+                ["Chest Flys", "https://www.youtube.com/watch?v=eozdVDA78K0", "https://fitnessprogramer.com/wp-content/uploads/2021/02/Dumbbell-Chest-Fly.gif"],
+                ["Push-Ups", "https://www.youtube.com/watch?v=IODxDxX7oi4", "https://fitnessprogramer.com/wp-content/uploads/2021/02/Push-Ups.gif"]
+            ],
+            back: [
+                ["Deadlifts", "https://www.youtube.com/watch?v=op9kVnSso6Q", "https://fitnessprogramer.com/wp-content/uploads/2021/02/Barbell-Deadlift.gif"],
+                ["Pull-Ups", "https://www.youtube.com/watch?v=eGo4IYlbE5g", "https://fitnessprogramer.com/wp-content/uploads/2021/02/Pull-up.gif"],
+                ["Bent-Over Rows", "https://www.youtube.com/watch?v=T3N-od1HD6o", "https://fitnessprogramer.com/wp-content/uploads/2021/02/Barbell-Bent-Over-Row.gif"],
+                ["Lat Pulldown", "https://www.youtube.com/watch?v=CAwf7n6Luuc", "https://fitnessprogramer.com/wp-content/uploads/2021/02/Lat-Pulldown.gif"]
+            ],
+            shoulders: [
+                ["Shoulder Press", "https://www.youtube.com/watch?v=2yjwXTZQDDI", "https://fitnessprogramer.com/wp-content/uploads/2021/02/Seated-Barbell-Shoulder-Press.gif"],
+                ["Lateral Raises", "https://www.youtube.com/watch?v=kDqklk1ZEsI", "https://fitnessprogramer.com/wp-content/uploads/2021/02/Dumbbell-Lateral-Raise.gif"]
+            ],
+            legs: [
+                ["Squats", "https://www.youtube.com/watch?v=YaXPRqUwItQ", "https://fitnessprogramer.com/wp-content/uploads/2021/02/Barbell-Squat.gif"],
+                ["Leg Press", "https://www.youtube.com/watch?v=IZxyjW7MPJQ", "https://fitnessprogramer.com/wp-content/uploads/2021/02/Leg-Press.gif"],
+                ["Lunges", "https://www.youtube.com/watch?v=QOVaHwm-Q6U", "https://fitnessprogramer.com/wp-content/uploads/2021/02/Lunge.gif"]
+            ]
+        };
+        function showWorkout() {
+            document.getElementById("workoutSection").style.display = "flex";
+        }
+        function hideWorkout() {
+            document.getElementById("workoutSection").style.display = "none";
+        }
+        function generateWorkout() {
+            let group = document.getElementById("muscleGroup").value;
+            let list = document.getElementById("exerciseList");
+            list.innerHTML = "";
+            workouts[group].forEach(exercise => {
+                let li = document.createElement("li");
+                li.innerHTML = `<a href="${exercise[1]}" target="_blank">${exercise[0]}</a>`;
+                list.appendChild(li);
+            });
+        }
+    </script>
+</body>
+</html>  

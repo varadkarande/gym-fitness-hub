@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gym Supplements Guide</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #111;
+            color: white;
+        }
+        header {
+            background-color: #ff6600;
+            color: white;
+            text-align: center;
+            padding: 20px;
+            font-size: 24px;
+            font-weight: bold;
+        }
+        .container {
+            max-width: 800px;
+            margin: 20px auto;
+            background: #222;
+            padding: 20px;
+            box-shadow: 0px 0px 15px rgba(255, 102, 0, 0.5);
+            border-radius: 10px;
+            text-align: center;
+        }
+        h2 {
+            color: #ff6600;
+        }
+        .supplement {
+            background: #333;
+            padding: 15px;
+            margin-bottom: 15px;
+            display: inline-block;
+            transform: skewX(-10deg);
+            border-left: 5px solid #ff6600;
+            padding: 20px;
+            transition: transform 0.3s, background 0.3s;
+        }
+        .supplement:hover {
+            transform: skewX(-10deg) scale(1.05);
+            background-color: #ff6600;
+            color: black;
+        }
+        button {
+            background-color: #ff6600;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+            border-radius: 5px;
+            margin-top: 10px;
+            transition: background 0.3s;
+        }
+        button:hover {
+            background-color: #cc5500;
+        }
+        .info {
+            display: none;
+            background: #444;
+            padding: 10px;
+            margin-top: 10px;
+            border-radius: 5px;
+        }
+        footer {
+            text-align: center;
+            padding: 10px;
+            background-color: #ff6600;
+            color: white;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+            font-weight: bold;
+        }
+    </style>
+    <script>
+        function showInfo(id) {
+            var info = document.getElementById(id);
+            if (info.style.display === "none") {
+                info.style.display = "block";
+            } else {
+                info.style.display = "none";
+            }
+        }
+    </script>
+</head>
+<body>
+    <header>
+        <h1>Gym Supplements Guide</h1>
+    </header>
+    <div class="container">
+        <h2>Top Supplements for Gym Freaks</h2>
+        <div class="supplement">
+            <h3>Whey Protein</h3>
+            <p>Helps in muscle recovery and growth. Best taken post-workout.</p>
+            <button onclick="showInfo('whey')">More Info</button>
+            <div id="whey" class="info">                
+            <p>Whey Protein is a fast-digesting protein source ideal for muscle recovery.</p>
+                 <p>1)</p>              
+                 <p>Optimum Nutrition (ON) Gold Standard 100% Whey.</p>
+                    <p>>Why it's great: High-quality protein (24g per scoop), mixes well, and comes in delicious flavors (e.g., Double Rich Chocolate, Vanilla Ice Cream).</p>
+                    <p>>Best for: Beginners and experienced gym-goers.</p>
+                    <p>>Price: Mid-range, excellent value for money.</p>
+                    <p>>Where to buy: Amazon, supplement stores, or directly from their website.</p>
+                   
+                    <p>2)</p>
+                   
+                    <p>Dymatize ISO100</p>
+                    
+                      <p>Why it's great: Hydrolyzed whey protein (fast absorption), low in carbs and fat, and great for post-workout recovery. Available in gourmet flavors like Gourmet Chocolate and Fruity Pebbles.</p>
+                      <p>Best for: Those looking for premium, fast-absorbing protein.</p>
+                      <p>Price: Slightly higher than ON but worth it for the quality.</p>
+                <p><strong>Buy Here:</strong> <a href="https://www.amazon.in/s?k=whey+protein+isolate+1kg">Amazon</a> | <a href="https://www.healthkart.com/best-sellers/whey-proteins?navKey=SCT-snt-pt-wp&cache=1&itracker=w:home|best-sellers|sport-nutrition|3|;p:2|;c:whey-protein|;&cache=1">HealthKart</a></p>
+            </div>
+        </div>
+        <div class="supplement">
+            <h3>Creatine</h3>
+            <p>Boosts strength and endurance. Recommended dose: 3-5g per day.</p>
+            <button onclick="showInfo('creatine')">More Info</button>
+            <div id="creatine" class="info">
+                <p>Creatine increases strength and helps improve high-intensity workout performance.</p>
+                <p>1)</p>
+                <p>MuscleBlaze Creatine Monohydrate</p>
+                <p>Why Buy? One of the most popular and trusted brands in India.</p>
+                <p>Dose: 5g per serving.</p>
+                <p>Price: ₹1,200–₹1,500 for 250g.</p>
+                <p>Where to Buy: Amazon, Flipkart, HealthKart, or MuscleBlaze website.</p>
+                <p>Best For: Beginners and regular users</p>
+
+                <p>2)</p>
+                <p>Big Muscles Creatine Monohydrate</p>
+                <p>Why Buy? Affordable and effective.</p>
+                <p>Dose: 5g per serving.</p>
+                <p>Price: ₹1,000–₹1,200 for 300g.</p>
+                <p>Where to Buy: Amazon, Flipkart, or HealthKart.</p>
+                <p>Best For: Budget-conscious buyers.</p>
+                <p>3)</p>
+                <p>AS-IT-IS Creatine Monohydrate</p>
+                <p>Why Buy? Pure and affordable, with no additives.</p>
+                <p>Dose: 5g per serving.</p>
+                <p>Price: ₹1,000–₹1,200 for 250g.</p>
+                <p>Where to Buy: Amazon, HealthKart, or AS-IT-IS website.</p>
+                <p>Best For: Those who want a no-frills, pure creatine.</p>
+                <p><strong>Buy Here:</strong> <a href="https://www.amazon.in/s?k=Creatine+Monohydrate&i=hpc&rh=n%3A1350384031%2Cp_123%3A372854%257C578551%2Cp_n_feature_thirteen_browse-bin%3A27915242031&dc&ds=v1%3ABsUc%2BTBwNm%2BqS0Uapk4VxKbCoLbpRFC8mEGP73Arpwo">Amazon</a> | <a href="https://www.healthkart.com/best-sellers/creatine?navKey=SCT-snt-pw-ct&cache=1&itracker=w:home|best-sellers|sport-nutrition|3|;p:8|;c:creatine|;&cache=1">HealthKart</a></p>
+            </div>
+        </div>
+        <div class="supplement">
+            <h3>Pre-Workout</h3>
+            <p>Increases energy and focus. Take 30 mins before training.</p>
+         
+            <button onclick="showInfo('preworkout')">More Info</button>
+            <div id="preworkout" class="info">
+                <p>Pre-workout supplements enhance focus, stamina, and pump during training.</p>   
+                <p>1)</p>
+            </p>Big Muscles Nutrition (Indian Brand)</p>
+            </p>Product: Big Muscles Pre-Workout</p>
+            </p>Why: Budget-friendly and effective for energy and pumps.</p>
+            </p>Where to Buy: HealthKart, Amazon India, or their official website.</p>
+            </p>Price: Around ₹1,500–₹2,000 for 30 servings.</p>
+            <p>2)</p>
+            </p>MuscleBlaze (Indian Brand)</p>
+            </p>Product: MB Pre-Workout</p>
+            </p>Why: Popular Indian brand with a good mix of caffeine, beta-alanine, and creatine.</p>
+            </p>Where to Buy: HealthKart, Amazon India, or Flipkart.</p>
+            </p>Price: Around ₹1,500–₹2,000 for 30 servings.</p>
+            
+
+
+
+
+
+
+
+            </p>3)</p>
+            </p>AS-IT-IS Nutrition (Indian Brand)</p>
+            </p>Product: AS-IT-IS Pre-Workout</p>
+            </p>Why: Clean formula with no proprietary blends, affordable.</p>
+            </p>Where to Buy: HealthKart, Amazon India, or their official website.</p>
+            </p>Price: Around ₹1,500–₹2,000 for 30 servings.</p>
+            
+                <p><strong>Buy Here:</strong> <a href="https://www.amazon.in/s?k=pre+workout&i=hpc&rh=n%3A1350384031%2Cp_123%3A250393%257C372854%257C578551&dc&ds=v1%3ArtuDMeB6msSyHiOkLwnxS3RAva%2BQ5E8WheLh09mzdSk">Amazon</a> | <a href="https://www.healthkart.com/search?txtQ=Preworkout+">HealthKart</a></p>
+            </div>
+        </div>
+        <div 
+        </div>
+    </div>
+    <footer>
+        <p>&copy; 2025 Gym Supplements Guide | All Rights Reserved</p>
+    </footer>
+</body>
+</html>>
